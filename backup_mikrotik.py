@@ -3,9 +3,7 @@ import json
 import os
 from datetime import datetime
 
-# Configuration file for Mikrotik devices
 DEVICES_FILE = 'mikrotik_devices.json'
-# Directory to save backups
 BACKUP_DIR = 'backups'
 
 def create_backup_dir():
