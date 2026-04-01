@@ -1,0 +1,8 @@
+[
+    {
+        "name": "Example_Router",
+        "host": "192.168.88.1",
+        "username": "admin",
+        "password": "your_password_here"
+    }
+]
