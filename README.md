@@ -5,6 +5,7 @@ A simple Python script that connects to Mikrotik routers via SSH and backs up th
 ## 🔧 Features
 
 - Connects via SSH using `paramiko`
+- Automatically detects RouterOS version (v6 or v7) to ensure sensitive data (passwords, keys) are included in the export
 - Automatically creates a `backups/` directory
 - Timestamps each backup file
 - Reads devices from a JSON config

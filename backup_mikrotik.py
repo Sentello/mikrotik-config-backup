@@ -47,8 +47,16 @@ def backup_mikrotik_config(device):
         client.connect(hostname=host, username=username, password=password, port=22, timeout=30, look_for_keys=False, allow_agent=False)
         print(f"Successfully connected to {name}.")
 
+        # Determine RouterOS version to use the correct export command for passwords
+        stdin, stdout, stderr = client.exec_command('/system resource print')
+        version_output = stdout.read().decode('utf-8')
+        
+        export_cmd = '/export'
+        if 'version: 7' in version_output:
+            export_cmd = '/export show-sensitive'
+
         # Execute the export command
-        stdin, stdout, stderr = client.exec_command('/export')
+        stdin, stdout, stderr = client.exec_command(export_cmd)
         config_output = stdout.read().decode('utf-8')
         error_output = stderr.read().decode('utf-8')
 
